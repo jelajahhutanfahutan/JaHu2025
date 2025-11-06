@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jelajah Hutan 2025</title>
+
+  <!-- FONT + ICONS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- ========== HEADER ========== -->
+  <div id="header-container"></div>
+
+  <!-- ========== HOME SECTION ========== -->
+  <div id="home-container"></div>
+
+  <!-- ========== UPCOMING EVENTS SECTION ========== -->
+  <div id="events-container"></div>
+
+  <!-- ========== ARTIKEL SECTIONS ========== -->
+  <!-- Artikel 1: Tema -->
+  <div id="artikel1-container"></div>
+
+  <!-- Artikel 2: Filosofi Maskot -->
+  <div id="artikel21-container"></div>
+
+  <!-- Artikel 3: Materi -->
+  <div id="artikel31-container"></div>
+
+  <!-- Artikel 4: Peraturan & Perlengkapan -->
+  <div id="artikel4-container"></div>
+
+  <!-- Artikel 5: Susunan Kepanitiaan -->
+  <div id="artikel5-container"></div>
+
+  <!-- Artikel 6: Merchandise -->
+  <div id="artikel6-container"></div>
+
+  <!-- ========== EVENT SECTIONS ========== -->
+  <!-- Event 1: Sosialisasi -->
+  <div id="event1-container"></div>
+
+  <!-- Event 2: PRA-Jelajah Hutan -->
+  <div id="event21-container"></div>
+
+  <!-- Event 3: Hari-H Jelajah Hutan -->
+  <div id="event31-container"></div>
+
+  <!-- Event 4: Pasca-Jelajah Hutan -->
+  <div id="event41-container"></div>
+
+  <!-- ========== ORDER FORM POPUP ========== -->
+  <div id="orderForm">
+    <div class="form-inner">
+      <h3>Formulir Pembelian</h3>
+      <input type="text" id="buyerName" placeholder="Nama Lengkap">
+      <input type="text" id="buyerClass" placeholder="Kelas">
+      <input type="text" id="buyerYear" placeholder="Angkatan">
+      <input type="number" id="buyerQty" placeholder="Jumlah" value="1" min="1">
+      <div style="display:flex; gap:12px; justify-content:center;">
+        <button class="btn-send" onclick="submitOrder()">Kirim WA</button>
+        <button class="btn-cancel" onclick="closeForm()">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <div id="footer-container"></div>
+
+  <!-- ========== FALLING LEAVES EFFECT ========== -->
+  <div id="falling-leaves"></div>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script src="js/script.js"></script>
+  
+  <!-- Load Partial Content -->
+  <script>
+    // Load all partial content
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPartial('header-container', 'partials/header.html');
+      loadPartial('home-container', 'partials/home.html');
+      loadPartial('events-container', 'partials/events.html');
+      loadPartial('artikel1-container', 'partials/artikel-tema.html');
+      loadPartial('artikel21-container', 'partials/artikel-filosofi.html');
+      loadPartial('artikel31-container', 'partials/artikel-materi.html');
+      loadPartial('artikel4-container', 'partials/artikel-peraturan.html');
+      loadPartial('artikel5-container', 'partials/artikel-kepanitiaan.html');
+      loadPartial('artikel6-container', 'partials/artikel-merchandise.html');
+      loadPartial('event1-container', 'partials/event-sosialisasi.html');
+      loadPartial('event21-container', 'partials/event-pra.html');
+      loadPartial('event31-container', 'partials/event-harih.html');
+      loadPartial('event41-container', 'partials/event-pasca.html');
+      loadPartial('footer-container', 'partials/footer.html');
+    });
+
+    function loadPartial(containerId, filePath) {
+      fetch(filePath)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(containerId).innerHTML = data;
+        })
+        .catch(error => console.error('Error loading partial:', error));
+    }
+  </script>
+</body>
+</html>
